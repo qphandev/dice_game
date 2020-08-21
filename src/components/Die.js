@@ -6,11 +6,6 @@ import { faDiceSix, faDiceFive, faDiceFour, faDiceThree, faDiceTwo, faDiceOne, f
 
 library.add(faDiceSix, faDiceFive, faDiceFour, faDiceThree, faDiceTwo, faDiceOne, faDiceD6);
 
-// Make array of dice objects, with icon, value, and... whether it's locked?
-// Where the heck are we going to keep 
-// Toggle dieLock
-    // true/false, style on or off.
-
 class Die extends Component {
 
     constructor(props) {
@@ -24,20 +19,7 @@ class Die extends Component {
         }
     }
 
-    // Locked die should not be updated, no rerendered
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     // component should update if dieLocked isn't locked
-    //     const dieLocked = !this.state.dieLocked;
-    //     return dieLocked;
-    // };
-
-
-    // https://stackoverflow.com/questions/41233458/react-child-component-not-updating-after-parent-state-change
-    // this part literally killed me 
-    // wtf even is happening here
     static getDerivedStateFromProps(props, state) {
-        // console.log("getDerivedStateFromProps heree");
-        // console.log(state);
         return { dieFace: props.dieFace, dieValue: props.dieValue, dieLocked: props.dieLocked };
     };
 

@@ -4,13 +4,6 @@ import './App.css';
 import Die from './components/Die';
 import GameButton from './components/GameButton';
 
-// https://www.robinwieruch.de/react-state-array-add-update-remove
-// https://stackoverflow.com/questions/24718709/reactjs-does-render-get-called-any-time-setstate-is-called
-
-// Weird error where I hit GameButton, it update state but doesn't render component. But then I hit the Die component and it rerenders.
-// how the heck do I make it so that people can't lock the beginning dice?
-  // don't render shit
-  // lock the lock on componentMount
 const INITIAL_DICE = [
   {dieFace: "dice-d6", dieValue: 0, dieLocked: false},
   {dieFace: "dice-d6", dieValue: 0, dieLocked: false},
@@ -31,7 +24,6 @@ const DICE_DATA_ARRAY = [
 class App extends Component {
 
   constructor(props) {
-    // Maybe just have a round object (ha ha)
     super(props);
     this.state = {
         buttonText: "Roll",
@@ -47,11 +39,6 @@ class App extends Component {
     this.onResetDice = this.onResetDice.bind(this);
   };
 
-  componentDidMount() {
-
-  }
-
-  // lockDie passes down to child
   onLockDie = (i) => {
     console.log("onLockDie");
     console.log(i);
@@ -88,7 +75,7 @@ class App extends Component {
     });
   };
 
-  // Rolls dice - generate random faces and values, update state... but why won't this render child component?!
+  // Rolls dice - generate random faces and values, update state
   onDiceRoll = () => {
     
     this.setState(prevState => {
@@ -169,13 +156,8 @@ class App extends Component {
   };
 
   render() {
-    // WHY WON'T IT RENDER?!
-    // console.log("Render in App, diceRolls state:");
-    // console.log(this.state.diceRolls);
     
     const diceRolls = this.state.diceRolls.map((die, i) => {
-      // console.log('in App render loop nao');
-      // console.log(die);
       return (
         <Die key={i} dieFace={die.dieFace} dieValue={die.dieValue} onLockDie={()=>this.onLockDie(i)} dieLocked={die.dieLocked} />
       );
@@ -195,9 +177,6 @@ class App extends Component {
   
         <div className="column center-align">
           <GameButton onDiceRoll={this.onDiceRoll} buttonText={this.state.buttonText}/>
-          {/* <div className="button-container">
-            <a onClick={this.onDiceRoll} className="deep-orange darken-1 btn-large">{this.state.buttonText}</a>
-          </div> */}
         </div>
         
       </div>
