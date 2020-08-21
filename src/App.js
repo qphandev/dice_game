@@ -178,6 +178,10 @@ class App extends Component {
         <div className="column center-align">
           <GameButton onDiceRoll={this.onDiceRoll} buttonText={this.state.buttonText}/>
         </div>
+
+        <div className="column center-align">
+        <p>Made by <a target="_blank" href="https://quynhphan.dev/">Quynh</a>, github link here: <a target="_blank" href="https://github.com/qphandev/dice_game">https://github.com/qphandev/dice_game</a> </p>
+        </div>
         
       </div>
     );
