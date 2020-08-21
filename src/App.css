@@ -1,38 +1,28 @@
-.App {
-  text-align: center;
+@import '../node_modules/materialize-css/dist/css/materialize.min.css';
+
+.die {
+    margin: 2rem;
+}
+.die:hover {
+    cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.button-container {
+    margin: 5rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn-large:active {
+    background-color: #fdd835 !important;
+    transition: .2s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.red-border {
+    border: 2px solid red;
 }
 
-.App-link {
-  color: #61dafb;
+.red-font {
+    color: red;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.green-font {
+    color: green;
 }
