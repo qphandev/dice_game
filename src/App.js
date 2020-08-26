@@ -40,8 +40,6 @@ class App extends Component {
   };
 
   onLockDie = (i) => {
-    console.log("onLockDie");
-    console.log(i);
 
     this.setState(prevState => {
       return {
@@ -58,9 +56,6 @@ class App extends Component {
           }
         })
       };
-    }, () => {
-      console.log("DIE INDEX MATCH");
-      console.log(this.state.diceRolls);
     });
 }
 
@@ -124,8 +119,6 @@ class App extends Component {
     // Check match ( you can roll all the same the first time) 
     const diceRolls = this.state.diceRolls;
     const isTheSame = (dieValue) => dieValue.dieValue === diceRolls[0].dieValue;
-    console.log("CHECKROUND");
-    console.log(diceRolls.every(isTheSame));
     const diceMatch = diceRolls.every(isTheSame);
     
     // Honestly this is just me being extra.
